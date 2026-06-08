@@ -16,7 +16,14 @@ app.use(cors());
 
 //Database connection with mongodb
 
-mongoose.connect("mongodb+srv://greatstackdev:emc%4012@cluster0.ro1nhqm.mongodb.net/e-commerce?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect(
+"mongodb://prabu12:emc12@ac-4mkoc8p-shard-00-00.ro1nhqm.mongodb.net:27017,ac-4mkoc8p-shard-00-01.ro1nhqm.mongodb.net:27017,ac-4mkoc8p-shard-00-02.ro1nhqm.mongodb.net:27017/e-commerce?ssl=true&replicaSet=atlas-4nhy0c-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0",
+{
+ serverSelectionTimeoutMS:10000
+}
+)
+.then(()=>console.log("MongoDB Connected"))
+.catch((err)=>console.log("Mongo Error:",err.message));
 
 //API Creation
 
